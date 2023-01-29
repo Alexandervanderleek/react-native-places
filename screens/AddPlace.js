@@ -1,0 +1,17 @@
+import React from 'react'
+import PlaceForm from '../components/places/PlaceForm'
+import { InsertPlace } from '../util/database'
+
+export default function AddPlace({navigation}) {
+  
+  async function createPlaceHandler(place){
+
+    await InsertPlace(place);
+
+    navigation.navigate("AllPlaces")
+  }
+  
+  return (
+    <PlaceForm onCreatePlace={createPlaceHandler}></PlaceForm>
+  )
+}
